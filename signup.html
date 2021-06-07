@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./static/signup.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Registration Form
+            </div>
+            <form action="/form"  method="POST" onSubmit = "return checkPassword(this)">
+                <div class="form_wrap">
+                    <div class="input_grp">
+                        <div class="input_wrap">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="fname" required>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lname" required>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div class="input_wrap2" style="margin-bottom: 20px;">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" 
+                        style="width: 100%; height:5vh;" required>
+                    </div>
+                    <div class="input_wrap2" style="margin-bottom: 20px;">
+                        <label for="re_password">Rewrite password</label>
+                        <input type="password" id="re_password"
+                        style="width: 100%; height:5vh;" required>
+                    </div>
+                   <div class="input_wrap">
+                        <label>Gender</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="gender" value="male" class="input_radio" checked>
+                                    <span>Male</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+                                    <input type="radio" name="gender" value="female" class="input_radio">
+                                    <span>Female</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="input_wrap">
+                        <input type="date" data-date-inline-picker="true" name="date" 
+                        style = "padding-bottom: 10px; margin-bottom: 20px;" required>
+                        <input type="submit" value="Send" class="submit_btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        const checkPassword = form => {
+            password1 = form.password.value;
+            password2 = form.rePassword.value;
+            if (password1 != password2) {
+                alert ("\nPassword did not match: Please try again...")
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
